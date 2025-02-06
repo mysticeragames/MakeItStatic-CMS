@@ -113,6 +113,10 @@ class GitRepository
             return null;
         }
 
+        if (!$this->isNonRootGitDir()) {
+            return null;
+        }
+
         $process = $this->git(['config', 'remote.origin.url']);
 
         return trim($process->getOutput());
