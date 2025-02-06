@@ -100,7 +100,7 @@ EOD;
         $files = [];
 
         $finder = new Finder();
-        $finder->files()->sortByName()->in($this->getContentPagesDirectory($site));
+        $finder->files()->sortByName(true)->in($this->getContentPagesDirectory($site));
 
         if ($finder->hasResults()) {
             foreach ($finder as $file) {

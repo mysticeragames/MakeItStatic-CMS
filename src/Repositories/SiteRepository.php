@@ -66,7 +66,7 @@ class SiteRepository
         }
 
         $finder = new Finder();
-        $finder->depth(0)->sortByName()->directories()->in($siteDir);
+        $finder->depth(0)->sortByName(true)->directories()->in($siteDir);
 
         $sites = [];
         if ($finder->hasResults()) {
