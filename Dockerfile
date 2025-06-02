@@ -7,7 +7,7 @@
 # This image should have the minimal requirements for the final production image
 ################################################################################
 
-FROM alpine:3.21.3 AS minimal
+FROM alpine:3.22.0 AS minimal
 
 # Set the php version (short format: 84)
 ARG PHP_VERSION_SHORT=84
@@ -28,13 +28,13 @@ RUN addgroup -g ${APP_GID} ${APP_GROUP} && \
 # Fix vulnerability (Found with Docker Scout)
 # https://security.alpinelinux.org/vuln/CVE-2024-50349
 # Install fixed git from edge/main repository
-RUN apk add --no-cache git=2.48.1-r0 --repository=https://dl-cdn.alpinelinux.org/alpine/edge/main
+#RUN apk add --no-cache git=2.48.1-r0 --repository=https://dl-cdn.alpinelinux.org/alpine/edge/main
 
 # Install packages
 RUN apk add --no-cache \
     curl \
     openssh-client \
-    # git \
+    git \
     nginx \
     php${PHP_VERSION_SHORT} \
     php${PHP_VERSION_SHORT}-ctype \
