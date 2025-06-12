@@ -29,7 +29,7 @@ echo -e "\n-> run '${IMAGE}' as '${CONTAINER_NAME}' on port ${PORT} (PLATFORM_AR
 docker ps -a -q --filter name=${CONTAINER_NAME} | grep -q . && docker rm -f ${CONTAINER_NAME}
 
 # run a detached container (max 15 seconds)
-docker run --rm ${PLATFORM_ARGUMENT} -d --name ${CONTAINER_NAME} -p ${PORT}:8250 $IMAGE || exit 1
+docker run --rm ${PLATFORM_ARGUMENT} -d --name ${CONTAINER_NAME} -p ${PORT}:8000 $IMAGE || exit 1
 
 # wait until container is healthy
 timeout 15s sh -c "until docker ps | grep -w ${CONTAINER_NAME} | grep -q healthy; do echo 'Waiting for container to be healthy (${IMAGE} -> ${CONTAINER_NAME})...'; sleep 1; done"
