@@ -20,11 +20,11 @@
         "php": "~8.4.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "league/commonmark": "^2.6.1",
+        "league/commonmark": "^2.7.0",
         "symfony/console": "7.2.*",
         "symfony/dotenv": "7.2.*",
         "symfony/filesystem": "7.2.*",
-        "symfony/flex": "^2.4.7",
+        "symfony/flex": "^2.7.1",
         "symfony/form": "7.2.*",
         "symfony/framework-bundle": "7.2.*",
         "symfony/mime": "7.2.*",
@@ -33,16 +33,16 @@
         "symfony/twig-bundle": "7.2.*",
         "symfony/validator": "7.2.*",
         "symfony/yaml": "7.2.*",
-        "twig/extra-bundle": "^3.19",
-        "twig/twig": "^3.19"
+        "twig/extra-bundle": "^3.21",
+        "twig/twig": "^3.21.1"
     },
     "require-dev": {
-        "phpstan/phpstan": "^2.1.2",
-        "phpunit/phpunit": "^12.0.2",
-        "squizlabs/php_codesniffer": "^3.11.3",
+        "phpstan/phpstan": "^2.1.17",
+        "phpunit/phpunit": "^12.2.1",
+        "squizlabs/php_codesniffer": "^3.13.1",
         "symfony/browser-kit": "7.2.*",
         "symfony/css-selector": "7.2.*",
-        "symfony/phpunit-bridge": "^7.2",
+        "symfony/phpunit-bridge": "^7.3",
         "symfony/string": "7.2.*"
     },
     "config": {
