@@ -8,6 +8,10 @@ framework:
     #esi: true
     #fragments: true
 
+    # https://github.com/symfony/symfony/blob/7.4/src/Symfony/Bundle/FrameworkBundle/DependencyInjection/Configuration.php#L1293
+    property_info:
+        with_constructor_extractor: false
+
 when@test:
     framework:
         test: true
