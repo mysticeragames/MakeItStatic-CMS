@@ -138,9 +138,9 @@ RUN mkdir -p ./var/log ./var/cache && \
 
 USER ${APP_USER}
 
-EXPOSE 8000
+EXPOSE 8250
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
-HEALTHCHECK --timeout=10s --interval=5s --start-interval=2s CMD curl --silent --fail http://127.0.0.1:8000/fpm-ping || exit 1
+HEALTHCHECK --timeout=10s --interval=5s --start-interval=2s CMD curl --silent --fail http://127.0.0.1:8250/fpm-ping || exit 1
 
 
 
@@ -177,6 +177,6 @@ RUN mkdir -p ./var/log ./var/cache && \
 
 USER ${APP_USER}
 
-EXPOSE 8000
+EXPOSE 8250
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
-HEALTHCHECK --timeout=10s --interval=5s --start-interval=2s CMD curl --silent --fail http://127.0.0.1:8000/fpm-ping || exit 1
+HEALTHCHECK --timeout=10s --interval=5s --start-interval=2s CMD curl --silent --fail http://127.0.0.1:8250/fpm-ping || exit 1

@@ -28,21 +28,22 @@ Open source Flat-File CMS with Static Site Generator
 ```bash
 # Start the CMS
 docker run \
-    -p 8000:8000 \
+    -d \
+    --rm \
+    -p 8250:8250 \
     -v ~/.ssh:/home/appuser/.ssh:ro \
     --pull always \
-    --name makeitstatic_cms \
+    --name makeitstatic-cms \
     mysticeragames/makeitstatic-cms
-
 ```
 
 - Navigate to your CMS, connect your GIT repositories and start working:
-- **http://localhost:8000**
+- **http://localhost:8250**
 
 ## Done? Cleanup
 
 ```bash
-docker rm makeitstatic_cms --force
+docker rm makeitstatic-cms --force
 ```
 
 ## Development (main branch)
@@ -136,8 +137,8 @@ symfony server:start
 
 |  |  |
 | ---- | --- |
-| Website   | http://localhost:8000 |
-| CMS       | http://localhost:8000/---cms |
+| Website   | http://localhost:8250 |
+| CMS       | http://localhost:8250/---cms |
 
 ```bash
 php bin/console site
@@ -172,7 +173,7 @@ Idea/TODO: The content + generated files are attached as git-submodule repositor
 ```bash
 # Normal usage
 docker pull mysticeragames/makeitstatic-cms:latest  # pull latest version
-docker run -d --name cms --restart unless-stopped -p 8000:8000 mysticeragames/makeitstatic-cms:latest  # start container
+docker run -d --name cms --restart unless-stopped -p 8250:8250 mysticeragames/makeitstatic-cms:latest  # start container
 docker exec cms sh -c "mkdir -p ./content && cp -r ./src/Demo/Content/Full/* ./content" # Copy demo content
 docker exec -t cms php bin/console site # CMS commands
 docker stop cms  # stop container
@@ -186,7 +187,7 @@ docker run --rm -it mysticeragames/makeitstatic-cms:latest npm -v
 docker run --rm -it mysticeragames/makeitstatic-cms:latest sh
 
 # Debug run
-docker run --rm --name cms -p 8000:8000 mysticeragames/makeitstatic-cms:latest
+docker run --rm --name cms -p 8250:8250 mysticeragames/makeitstatic-cms:latest
 
 
 docker exec cms sh -c 'echo -e "APP_ENV=dev\nAPP_SECRET=" > /var/www/html/.env.local && php bin/console cache:clear && /usr/sbin/nginx -s reload' # set env to dev
@@ -199,8 +200,8 @@ docker exec cms tail /var/log/nginx/project_access.log -n 5
 docker exec cms tail /var/log/nginx/project_error.log -n 5
 ```
 
-- http://localhost:8000
-- http://localhost:8000/---cms
+- http://localhost:8250
+- http://localhost:8250/---cms
 
 ```bash
 # Build new image
@@ -209,7 +210,7 @@ docker build -t mysticeragames/makeitstatic-cms:latest .
 # docker push mysticeragames/makeitstatic-cms:latest   # push to repo (TODO: make Github Action that takes the Release version as tag)
 
 # DEVELOPMENT MODE: Mount local folder (including all the CMS files - note: use APP_ENV=prod to avoid messages)
-docker run --rm --name makeitstatic-cms -p 8000:8000 -v $(pwd):/var/www/html mysticeragames/makeitstatic-cms:latest
+docker run --rm --name makeitstatic-cms -p 8250:8250 -v $(pwd):/var/www/html mysticeragames/makeitstatic-cms:latest
 
 
 ### TODO / idea:
