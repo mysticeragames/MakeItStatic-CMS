@@ -7,7 +7,7 @@
 # This image should have the minimal requirements for the final production image
 ################################################################################
 
-FROM alpine:3.22.1 AS minimal
+FROM alpine:3.22.2 AS minimal
 
 # Set the php version (short format: 84)
 ARG PHP_VERSION_SHORT=84
