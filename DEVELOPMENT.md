@@ -1,6 +1,14 @@
 # Development
 
 ```bash
+git clone git@github.com:mysticeragames/MakeItStatic-CMS.git
+
+cd MakeItStatic-CMS
+
+composer install
+```
+
+```bash
 # Build + test container locally:
 .cmd/build-and-test.sh
 ```

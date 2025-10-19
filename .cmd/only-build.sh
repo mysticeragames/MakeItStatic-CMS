@@ -19,10 +19,10 @@ DOCKER_BUILDKIT=1 docker build --target final_prod -t cms:prod .
 docker images cms:*
 
 # run test image:
-# docker run --rm -it -p 8000:8000 cms:test
+# docker run --rm -it -p 8250:8250 cms:test
 
 # run production image:
-# docker run --rm -it -p 8000:8000 cms:prod
+# docker run --rm -it -p 8250:8250 cms:prod
 
 # remove all local images:
 # docker rmi $(docker images -q cms:*)
